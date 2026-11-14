@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@x402/core": "2.31.0",
+    "@x402/evm": "2.31.0",
+    "@x402/hono": "2.31.0",
+    "hono": "^4.9.0"
+  },
+  "description": "vAPI Demo Quote API as a Cloudflare Worker (x402 v2 paywall, $0.001 USDC on Base)",
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "wrangler": "^4.0.0"
+  },
+  "name": "vapi-demo-quote-worker",
+  "scripts": {
+    "bundle": "esbuild src/index.js --bundle --format=esm --minify --outfile=dist/worker.js --alias:url=./shims/url.js",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev --port 8787"
+  },
+  "type": "module",
+  "version": "1.0.0"
+}
